@@ -1,0 +1,38 @@
+<%- include('./partials/header.ejs') %> 
+<body>
+    <%- include('./partials/navbar.ejs') %> 
+    <div class="alert alert-primary" role="alert">
+        <a href="/"><b>Voltar para home</b></a>
+     </div>
+     <br>
+   
+    <div class="container">        
+        <hr>
+        <h3><%= pergunta.titulo %></h3> <!-- pergunta vem do parametro passado na rota atraves da promise -->
+        <p><%= pergunta.descricao %></p>
+        <hr>
+        <form method="POST" action="/responder">            
+            <label><b>Respoder</b></label>
+            <textarea placeholder="Digite aqui sua resposta" class="form-control" name="corpo"></textarea><br>
+            <input type="hidden" name="pergunta" value="<%= pergunta.id %> ">
+            <button type="submit"class="btn btn-primary">Salvar</button>
+        </form>
+        <hr>
+        <h4>Respostas:</h4>
+        <br>
+        <% respostas.forEach(resposta => { %>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                     <p><%= resposta.corpo %> </p>
+                </div>
+                
+            </div>
+           
+        <%  }) %>
+    </div>
+
+<%- include('./partials/footer.ejs') %>    
+</body>
+
+</html>

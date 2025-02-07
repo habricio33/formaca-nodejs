@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pagina com EJS</h1>
+    <br>
+    <ul>
+        <li><%= nome %></li>
+        <li><%= lang %></li>
+        <li><%= empresa %></li>
+        <li><%= inscritos %></li>
+    </ul>
+
+    <br>
+    <% if(msg) { %>
+        <h3> This is a message error</h3>
+    <% } %>
+    <br>
+    <% produtos.forEach((produto) => { %>
+        <%= produto.nome %> - <%= produto.preco %>
+    <% }) %>    
+
+    <br>
+
+    <img src="img/imagem.jpg" >
+    
+</body>
+</html>
